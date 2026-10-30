@@ -1,0 +1,13 @@
+services:
+  foodtrack:
+    build: .
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:3000:3000"
+    environment:
+      PUBLIC_URL: ${PUBLIC_URL:-http://localhost:3000}
+      FOODTRACK_PASSWORD: ${FOODTRACK_PASSWORD:?Set FOODTRACK_PASSWORD in .env}
+    volumes:
+      - foodtrack_data:/data
+volumes:
+  foodtrack_data:

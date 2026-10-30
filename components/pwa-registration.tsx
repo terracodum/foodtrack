@@ -1,0 +1,3 @@
+"use client";
+import {useEffect} from 'react';
+export default function InstallRegistration(){useEffect(()=>{const before=(e:Event)=>{e.preventDefault();(window as any).__foodTrackInstallPrompt=e};const done=()=>{delete (window as any).__foodTrackInstallPrompt};window.addEventListener('beforeinstallprompt',before);window.addEventListener('appinstalled',done);if('serviceWorker'in navigator&&window.isSecureContext&&!import.meta.env.DEV)navigator.serviceWorker.register('/sw.js',{scope:'/'}).catch(()=>{});return()=>{window.removeEventListener('beforeinstallprompt',before);window.removeEventListener('appinstalled',done)}},[]);return null}

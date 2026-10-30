@@ -1,0 +1,5 @@
+# Caddy runs directly on the same host as Compose's published localhost port.
+# Replace this example domain, point DNS to the host, and set matching PUBLIC_URL.
+foodtrack.example.org {
+    reverse_proxy 127.0.0.1:3000
+}

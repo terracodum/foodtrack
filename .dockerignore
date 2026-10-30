@@ -1,0 +1,14 @@
+.git
+node_modules
+dist
+data
+.env
+.env.*
+.wrangler
+.sites-runtime
+.next
+.vinext
+outputs
+upload
+*.zip
+*.tar.gz

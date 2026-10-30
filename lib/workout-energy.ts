@@ -1,0 +1,4 @@
+// Broad MET bands are estimates of average session intensity, including rest periods.
+export const energyActivities={strength_easy:{label:'Силовая с обычными паузами',low:2.5,high:3.5},strength_hard:{label:'Интенсивная силовая / круговая',low:3.5,high:6},walking:{label:'Ходьба, умеренный / быстрый темп',low:3,high:4.5},cycling:{label:'Велотренажёр, лёгкий / средний темп',low:4,high:8},running:{label:'Бег, лёгкий / средний темп',low:7,high:12}};
+export type EnergyActivity=keyof typeof energyActivities;
+export function workoutEnergy(minutes:number,weight:number,activity:EnergyActivity){const band=energyActivities[activity];if(!band||!Number.isFinite(minutes)||minutes<=0||minutes>1440||!Number.isFinite(weight)||weight<30||weight>350)return null;const factor=3.5*weight/200*minutes;const round=(v:number)=>Math.round(v/10)*10;return {grossLow:round(band.low*factor),grossHigh:round(band.high*factor),netLow:round((band.low-1)*factor),netHigh:round((band.high-1)*factor)}}
