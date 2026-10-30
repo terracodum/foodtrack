@@ -12,3 +12,12 @@ outputs
 upload
 *.zip
 *.tar.gz
+
+# Local agent state and one-time preparation notes
+.agents
+.codex
+LOCAL_CODEX_TASK.md
+SOURCE_VERSION.txt
+*.sqlite
+*.sqlite-shm
+*.sqlite-wal
